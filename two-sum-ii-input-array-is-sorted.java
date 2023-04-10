@@ -19,3 +19,29 @@ class Solution {
 
 
 //apporach 2 
+
+class Solution2 {
+    public int[] twoSum(int[] numbers, int target) {
+        int left , right;
+        int [] arr = new int[2];
+     
+       for( left = 0,  right = numbers.length -1; left< numbers.length && right>0; ){
+            if(numbers[left] + numbers[right] == target){
+                   arr[0] = left + 1;
+                   arr[1] = right + 1;
+                   break;
+            }
+            if(numbers[left] + numbers[right] > target){
+             right--;
+             continue;
+            }
+             if(numbers[left] + numbers[right] < target){
+             left++;
+             continue;
+            }
+          
+       }
+
+       return arr;
+    }       
+}
