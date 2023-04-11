@@ -20,3 +20,56 @@ class Solution {
         
     }
 }
+
+//optimized with string builder
+class Solution2 {
+    public String reverseWords(String s) {
+ 
+
+        String [] str=s.split(" ");
+        
+        StringBuilder rev=new StringBuilder();
+
+        for(String temp:str)
+        {
+            rev.append(new StringBuilder(temp).reverse().toString());
+            rev.append(" ");
+        }
+        return rev.toString().trim();
+        
+    }
+}
+
+//optimized without string builder
+
+class Solution3 {
+    public String reverseWords(String s) {
+   
+        String [] str=s.split(" ");
+        
+        s = "";
+
+        for(String temp:str)
+        {
+            s = s + reverse(temp) + " ";
+            
+             
+        }
+        return s.trim();
+        
+    }
+
+    public String reverse(String s){
+        char [] arr = s.toCharArray();
+        int i=0;
+        for(int j=arr.length-1;j>i;j--){
+            char temp=arr[j];
+            arr[j]=arr[i];
+            arr[i]=temp;
+            i++;
+
+        }
+        s = String.valueOf(arr);
+         return s;
+    }
+}
