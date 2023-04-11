@@ -1,32 +1,44 @@
-//https://leetcode.com/problems/is-subsequence 
+//https://leetcode.com/problems/is-subsequence/submissions/932051274/
+
+//approach 1
 
 class Solution {
     public boolean isSubsequence(String s, String t) {
-      int lastIndex = -1;
-      boolean fal = true;
-       for(int i=0; i< s.length(); i++){
-         boolean notContains = true;
-         for(int n=0; n< t.length(); n++){
-           if(s.charAt(i) == t.charAt(n)){
-             notContains = false;
-             if(lastIndex < n){
-              lastIndex = n;
-              fal = true;
+       if(s.length()<1)
+        return true;
+        int i =0;
+          for(int j = 0; j<t.length(); j++){
+              if(s.charAt(i) == t.charAt(j)){
+                  i++;
               }
-              else {
-                fal = false;
-              } 
-            }
+              if(i == s.length()){
+                  return true;
+              }
+          }
+      return false;
+    }
+}
+
+//approach2
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        int p = t.length(), r = s.length();
+       if(r<1){
+            return true;
+       }
+        
+        int i =0 , j=0;
        
-          
-         }
-         if(notContains){
-           return false;
-         }
-          if(!fal){
-           return false;
-         }
-       } 
-       return true;
+        while(j < p ){
+           
+              if(s.charAt(i) == t.charAt(j)){
+                  i++;
+              }
+              if(i == s.length()){
+                  return true;
+              }
+              j++;
+          }
+      return false;
     }
 }
