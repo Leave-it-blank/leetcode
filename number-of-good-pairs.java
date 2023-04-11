@@ -19,3 +19,25 @@ class Solution {
         
     }
 }
+// 2 optimized for memory
+class Solution2 {
+    public int numIdenticalPairs(int[] nums) {
+
+        int result = 0;
+        int i =0, j =i+1;
+        int len = nums.length;
+
+        for(  i=0; i< len; i++){
+            for(  j = i+1; j<len; j++){
+                if(nums[i] == nums[j]){
+                    result++;
+                }
+            }
+        }
+        
+        
+
+        return result;
+        
+    }
+}
