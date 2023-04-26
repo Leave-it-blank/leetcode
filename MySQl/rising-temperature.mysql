@@ -1,0 +1,9 @@
+#https://leetcode.com/problems/rising-temperature 
+# Write your MySQL query statement below
+SELECT W.id 
+FROM Weather W 
+WHERE W.temperature > (
+    SELECT temperature 
+    FROM Weather 
+    WHERE recordDate = DATE_ADD(W.recordDate, INTERVAL -1 DAY)
+)
