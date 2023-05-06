@@ -1,0 +1,12 @@
+#https://leetcode.com/problems/biggest-single-number 
+#method 1
+# Write your MySQL query statement below
+
+SELECT MAX(num) AS num FROM (SELECT num FROM mynumbers GROUP BY num HAVING COUNT(num) = 1) as mynum;
+
+#method 2
+
+# Write your MySQL query statement below
+
+SELECT Max(num) as num FROM MyNumbers where num not in (select num from MyNumbers group by num HAVING COUNT(num) > 1)
+ 
