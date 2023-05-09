@@ -1,0 +1,26 @@
+# https://leetcode.com/problems/delete-duplicate-emails 
+# Please write a DELETE statement and DO NOT write a SELECT statement.
+# Write your MySQL query statement below
+
+#first
+# DELETE p1 
+# FROM Person p1 
+# JOIN (
+#     SELECT email, MIN(id) as min_id 
+#     FROM Person 
+#     GROUP BY email 
+#     HAVING COUNT(email) > 1
+# ) AS p2 
+# ON p1.email = p2.email AND p1.id > p2.min_id;
+
+#second faster
+
+DELETE FROM Person
+WHERE id NOT IN (
+    SELECT MIN(id) 
+    FROM (
+        SELECT id, email 
+        FROM Person 
+    ) AS duplicates
+    GROUP BY email
+);
