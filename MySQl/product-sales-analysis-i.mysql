@@ -1,0 +1,4 @@
+#https://leetcode.com/problems/product-sales-analysis-i/ 
+
+# Write your MySQL query statement below
+Select T.product_name, s.year, s.price from Sales s Inner Join Product T on T.product_id = s.product_id;
