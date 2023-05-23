@@ -1,0 +1,9 @@
+# Write your MySQL query statement below
+  select product_id, product_name from Sales
+  inner join product using(product_id)
+  group by product_id
+  having sum(if(sale_date between '2019-01-01' and '2019-03-31', 1, 0)) = sum(if(sale_date, 1, 0))
+
+#can be better
+
+#https://leetcode.com/problems/sales-analysis-iii
