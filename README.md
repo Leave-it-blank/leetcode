@@ -1,3 +1,3 @@
 # leetcode
 
-Repo contains mysql and java solution for leetcode problems around dsa and sql
+Repo contains mysql and java solution for leetcode problems around dsa and sql.
